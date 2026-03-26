@@ -1,0 +1,12 @@
+QDRANT_SHARD_PATH = "qdrant_data"
+
+VECTOR_NAME = "sensor_vector"
+VECTOR_SIZE = 3   # 3 sensors × window(10)
+
+ANOMALY_THRESHOLD = 0.75
+
+BASELINE_WINDOW = 50
+SPIKE_Z_SCORE = 2.0
+
+WARMUP_STEPS = 60
+WINDOW_SIZE = 10
