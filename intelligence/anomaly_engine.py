@@ -44,7 +44,7 @@ class AnomalyDetector:
         similarity = self._engine.search(vector)
         anomaly_score = 1.0 - similarity
 
-        # ✅ WARMUP
+        # WARMUP
         if self._step <= config.WARMUP_STEPS:
             self._engine.store(vector)
             return AnomalyResult(
