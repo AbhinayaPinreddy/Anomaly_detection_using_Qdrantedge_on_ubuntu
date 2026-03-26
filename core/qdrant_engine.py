@@ -61,7 +61,7 @@ class QdrantEdgeEngine:
     def search(self, vector: np.ndarray, top_k: int = 5):
 
         if self._count == 0:
-            return 1.0  # important fix
+            return 1.0  
 
         req = QueryRequest(
             query=Query.Nearest(
