@@ -57,12 +57,12 @@ while True:
     step += 1
     t += 0.1
 
-    # ✅ normal signal
+    # normal signal
     temperature = 25 + 3 * math.sin(t) + random.uniform(-0.5, 0.5)
     humidity = 60 + 8 * math.sin(t / 2) + random.uniform(-1, 1)
     vibration = 0.02 + 0.02 * math.sin(t) + random.uniform(-0.01, 0.01)
 
-    # ✅ anomalies injection
+    #  anomalies injection
     if random.random() < 0.1:
         temperature += random.uniform(40, 70)
         vibration += random.uniform(3, 6)
@@ -103,7 +103,7 @@ while True:
     # ----------------------------
     if step % 3 == 0:
 
-        # ✅ LEFT TABLE WITH HIGHLIGHT
+        # LEFT TABLE WITH HIGHLIGHT
         df = pd.DataFrame(rows)
 
         def highlight(val):
@@ -113,7 +113,7 @@ while True:
 
         table_placeholder.dataframe(styled_df, width="stretch")
 
-        # ✅ RIGHT GRAPH
+        #  RIGHT GRAPH
         fig = go.Figure()
 
         # last 50 similarity values
@@ -121,7 +121,7 @@ while True:
         start_index = len(similarity) - len(last_sim)
         last_indices = list(range(start_index, len(similarity)))
 
-        # 🔵 BLUE LINE
+        #  BLUE LINE
         fig.add_trace(go.Scatter(
             x=last_indices,
             y=last_sim,
@@ -129,7 +129,7 @@ while True:
             name='Similarity'
         ))
 
-        # 🔴 FILTER ANOMALIES (ONLY VISIBLE RANGE)
+        #  FILTER ANOMALIES (ONLY VISIBLE RANGE)
         filtered_x = []
         filtered_y = []
 
@@ -138,7 +138,7 @@ while True:
                 filtered_x.append(anomaly_x[i])
                 filtered_y.append(anomaly_y[i])
 
-        # 🔴 RED DOTS
+        #  RED DOTS
         fig.add_trace(go.Scatter(
             x=filtered_x,
             y=filtered_y,
@@ -147,7 +147,6 @@ while True:
             name='Anomaly'
         ))
 
-        # 🎯 FIX ZOOM (so dips visible)
         fig.update_layout(
             yaxis=dict(range=[0.95, 1.0])
         )
