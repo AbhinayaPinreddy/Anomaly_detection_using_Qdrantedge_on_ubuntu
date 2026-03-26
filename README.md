@@ -33,7 +33,7 @@ It simulates sensor data (temperature, humidity, vibration) and detects anomalie
 ##  Project Structure
 
 qdrant_edge_project/
-│── main.py
+│── main6.py
 │── config.py
 │── requirements.txt
 │
@@ -59,7 +59,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 ### 4. Run the application
-streamlit run main.py
+streamlit run main6.py
 
 ---
 
